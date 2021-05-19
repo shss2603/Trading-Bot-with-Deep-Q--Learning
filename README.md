@@ -31,7 +31,7 @@ Deep Q-Learning :This dataset will be used for Trading bot training. Which will 
 	Close: Closing value of stock for that particular timestamp
 	Volume: Volume of trades happening of stock for that particular timestamp.
 
-NLP : Sentiment140 training Data. The Input data contains sentiments in form of 0-Negative 2-Neutral and 4-Positive.We will convert these to 0,0.5 and 1.We will be using below 2 data Labels:
+NLP : Sentiment140 training Data. The Input data contains sentiments in form of 0-Negative and 4-Positive.We will first use a Multinomial Naive Bayes Model to convert the two sentiments in training data into three sentiments using the probability values.We will then use BERT to create a model which is used to predict tweets over a priod of 5 years.We will finally get 0,1 and 2 as output.We will be using below 2 data Labels:
    
 	Timestamp: Timestamp when the tweet was tweeted
    	Tweet : The actual tweet which we will analyze
@@ -48,9 +48,9 @@ TradingBot:
 NLP:
 	
 		Implementation : We will firstly use word2vec embedding to convert text data to numerical data. This data will be fed to Deep Neural Network models. We will use crossEntropy loss in both the models. We will then choose the best performing model based on accuracy and F1 score.
-		Model : Text CNN Model for multiclass classification , Multiclass classification using BERT model
+		Model : Multinomial Naive Bayes' Algorithm to convert training data from two class to three class, Multiclass classification using BERT model
 		Input : Tweets about the stocks in the past 1 hour from the timestamp window. Data Labels (Timestamp of tweet  and Tweet)
-		Output : Sentiment about the stock (0: Negative 0.5: Neutral 1: Positive)
+		Output : Sentiment about the stock (0: Negative 1: Neutral 2: Positive)
 
 
 Project Outcome:
